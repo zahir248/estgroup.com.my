@@ -126,6 +126,10 @@
     /* About main content */
     .section-about-content { background: #fff; padding: 4rem 0 5rem; }
     .section-about-content .section-header { margin-bottom: 1.5rem; }
+    @media (min-width: 992px) {
+        .section-about-content .col-lg-6:first-child { order: 2; }
+        .section-about-content .col-lg-6:last-child { order: 1; }
+    }
     .about-body {
         color: #5a5a5a;
         line-height: 1.75;
@@ -141,7 +145,7 @@
         font-size: 1.15rem;
         margin-top: 2rem;
         margin-bottom: 0.75rem;
-        text-align: center;
+        text-align: left;
     }
     .about-content-img-wrap {
         position: relative;
@@ -266,8 +270,8 @@
         background: #fff;
         border-left: 1px solid #e9ecef;
     }
-    .section-management-team .team-name { font-size: 1.35rem; font-weight: 700; color: #0d2137; letter-spacing: -0.02em; margin-bottom: 0.25rem; text-align: center; }
-    .section-management-team .team-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; color: #1a5f7a; text-transform: uppercase; margin-bottom: 1.25rem; text-align: center; }
+    .section-management-team .team-name { font-size: 1.35rem; font-weight: 700; color: #0d2137; letter-spacing: -0.02em; margin-bottom: 0.25rem; text-align: left; }
+    .section-management-team .team-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; color: #1a5f7a; text-transform: uppercase; margin-bottom: 1.25rem; text-align: left; }
     .section-management-team .team-bio { color: #5a5a5a; line-height: 1.75; font-size: 1rem; margin-bottom: 1rem; text-align: justify; }
     .section-management-team .team-bio:last-child { margin-bottom: 0; }
     @media (prefers-reduced-motion: reduce) {
@@ -285,7 +289,7 @@
         .section-about-content { padding: 3rem 0 4rem; }
         .section-about-content .section-header { margin-bottom: 1.25rem; }
         .about-body { font-size: 0.95rem; text-align: justify !important; }
-        .about-subheading { font-size: 1.05rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .about-subheading { font-size: 1.05rem; margin-top: 1.5rem; margin-bottom: 0.5rem; text-align: center; }
         .about-content-img-wrap { min-height: 280px; }
         .section-about-block { padding: 3rem 0; }
         .section-about-block .about-block-bg-word { font-size: clamp(4rem, 14vw, 8rem); }
@@ -301,7 +305,8 @@
         .section-management-team .team-header { margin-bottom: 2rem; }
         .section-management-team .team-profile-img-wrap { min-height: 260px; }
         .section-management-team .team-profile-body { padding: 1.25rem 1.5rem 1.75rem; }
-        .section-management-team .team-name { font-size: 1.2rem; }
+        .section-management-team .team-name { font-size: 1.2rem; text-align: center; }
+        .section-management-team .team-title { text-align: center; }
         .section-management-team .team-bio { text-align: justify !important; }
     }
 
@@ -319,7 +324,7 @@
         .section-about-content .col-lg-6:last-child { order: 2; }
         .section-about-content .section-header { margin-bottom: 1rem; }
         .about-body { font-size: 0.9rem; margin-bottom: 1rem; text-align: justify !important; }
-        .about-subheading { font-size: 1rem; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+        .about-subheading { font-size: 1rem; margin-top: 1.25rem; margin-bottom: 0.5rem; text-align: center; }
         .about-content-img-wrap { min-height: 220px; border-radius: 10px; }
         .section-about-block { padding: 2.5rem 0; }
         .section-about-block .about-block-bg-word { font-size: clamp(3rem, 20vw, 5rem); opacity: 0.4; }
@@ -341,8 +346,8 @@
         .section-management-team .team-profile .col-md-8 { max-width: 100%; flex: 0 0 100%; }
         .section-management-team .team-profile-img-wrap { min-height: 240px; }
         .section-management-team .team-profile-body { padding: 1.25rem 1.25rem 1.5rem; border-left: none; border-top: 1px solid #e9ecef; }
-        .section-management-team .team-name { font-size: 1.15rem; }
-        .section-management-team .team-title { font-size: 0.7rem; margin-bottom: 1rem; }
+        .section-management-team .team-name { font-size: 1.15rem; text-align: center; }
+        .section-management-team .team-title { font-size: 0.7rem; margin-bottom: 1rem; text-align: center; }
         .section-management-team .team-bio { font-size: 0.9rem; margin-bottom: 0.75rem; text-align: justify !important; }
     }
 

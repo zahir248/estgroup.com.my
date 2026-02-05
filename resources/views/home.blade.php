@@ -186,7 +186,7 @@
     .card-feature .card-body { padding: 1.5rem 1.5rem 1.75rem; text-align: center; }
     .card-feature .card-title { font-weight: 700; color: var(--primary-dark); font-size: 1.15rem; margin-bottom: 0.5rem; transition: color 0.25s ease; }
     .card-feature:hover .card-title { color: var(--primary-accent); }
-    .card-feature .card-text { color: #5a5a5a; font-size: 0.95rem; margin-bottom: 1rem; text-align: justify; }
+    .card-feature .card-text { color: #5a5a5a; font-size: 0.95rem; margin-bottom: 1rem; text-align: center; }
     .card-feature .card-body .btn-learn-more { display: inline-flex; }
     .btn-learn-more { background: linear-gradient(135deg, var(--accent-gold) 0%, #f7931e 100%); border: none; color: #fff; font-weight: 600; padding: 0.6rem 1.5rem; border-radius: 8px; transition: all var(--transition-smooth); display: inline-flex; align-items: center; gap: 0.4rem; }
     .btn-learn-more:hover { background: linear-gradient(135deg, #f7931e 0%, #e88519 100%); color: #fff; transform: translateX(4px); }
