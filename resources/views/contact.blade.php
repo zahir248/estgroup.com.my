@@ -95,9 +95,6 @@
         .section-header { margin-bottom: 1.5rem; }
         .section-contact { padding: 2rem 0 2.5rem; }
         .section-contact .contact-tagline { font-size: 0.9rem; margin-bottom: 1.5rem; }
-        .section-contact .row { flex-direction: column; }
-        .section-contact .col-lg-5 { order: 1; }
-        .section-contact .col-lg-7 { order: 2; }
         .section-contact .contact-info-card { padding: 0.5rem 0; margin-bottom: 0.25rem; }
         .section-contact .contact-info-icon { width: 38px; height: 38px; font-size: 1rem; }
         .section-contact .contact-info-title { font-size: 0.9rem; }
@@ -157,7 +154,14 @@
                     $contactEmailDisplay = \App\Models\Setting::get('contact_email', 'info@estgroup.com.my');
                     $contactPhoneDisplay = \App\Models\Setting::get('contact_phone', '+603 7734 1711');
                 @endphp
-                <div class="col-lg-5 reveal reveal-delay-1">
+                <!-- Map left on large screens (order 2 on mobile so text shows first) -->
+                <div class="col-lg-7 reveal reveal-delay-1 order-2 order-lg-1">
+                    <div class="contact-map-wrap">
+                        <iframe src="https://maps.google.com/maps?q=17-1+Jalan+Bazaar+P+U8+P+Trivio+Bukit+Jelutong+40150+Shah+Alam+Selangor&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="EST Group location - Trivio Bukit Jelutong, Shah Alam"></iframe>
+                    </div>
+                </div>
+                <!-- Text info right on large screens (order 1 on mobile) -->
+                <div class="col-lg-5 reveal reveal-delay-2 order-1 order-lg-2">
                     <div class="d-flex flex-column gap-3">
                         <div class="contact-info-card d-flex gap-3">
                             <div class="contact-info-icon">
@@ -186,11 +190,6 @@
                                 <p class="contact-info-text">{{ $contactPhoneDisplay ? e($contactPhoneDisplay) : '—' }}</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-7 reveal reveal-delay-2">
-                    <div class="contact-map-wrap">
-                        <iframe src="https://maps.google.com/maps?q=17-1+Jalan+Bazaar+P+U8+P+Trivio+Bukit+Jelutong+40150+Shah+Alam+Selangor&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="EST Group location - Trivio Bukit Jelutong, Shah Alam"></iframe>
                     </div>
                 </div>
             </div>
