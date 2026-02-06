@@ -150,7 +150,14 @@
                             $strategicLogos = \App\Models\PartnerLogo::where('section', 'strategic')->orderBy('sort_order')->orderBy('id')->get();
                             $financialLogos = \App\Models\PartnerLogo::where('section', 'financial')->orderBy('sort_order')->orderBy('id')->get();
                             $partnerImageUrl = function ($logo) {
-                                return str_starts_with($logo->image, 'http') ? $logo->image : asset($logo->image);
+                                if (str_starts_with($logo->image, 'http')) {
+                                    return $logo->image;
+                                }
+                                // Use route so images work without public/storage symlink (e.g. on cPanel)
+                                if (str_starts_with($logo->image, 'storage/')) {
+                                    return route('partner.image', ['path' => \Illuminate\Support\Str::after($logo->image, 'storage/')]);
+                                }
+                                return asset($logo->image);
                             };
                         @endphp
     <!-- Accreditation Partner -->
@@ -164,7 +171,7 @@
                 <div class="accreditation-track">
                     @foreach($accreditationLogos->concat($accreditationLogos) as $logo)
                     <div class="partner-item">
-                        <div class="logo-box"><img src="{{ $partnerImageUrl($logo) }}" alt="{{ e($logo->alt) }}"></div>
+                        <div class="logo-box"><img src="{{ $partnerImageUrl($logo) }}" alt="{{ e($logo->alt) }}" onerror="this.onerror=null;this.src='{{ asset('placeholder-partner.svg') }}';"></div>
                     </div>
                     @endforeach
                 </div>
@@ -182,7 +189,7 @@
             @if($strategicLogos->isNotEmpty())
             <div class="partners-grid">
                 @foreach($strategicLogos as $logo)
-                <div class="partner-logo-box"><img src="{{ $partnerImageUrl($logo) }}" alt="{{ e($logo->alt) }}"></div>
+                <div class="partner-logo-box"><img src="{{ $partnerImageUrl($logo) }}" alt="{{ e($logo->alt) }}" onerror="this.onerror=null;this.src='{{ asset('placeholder-partner.svg') }}';"></div>
                 @endforeach
             </div>
             @endif
@@ -198,7 +205,7 @@
             @if($financialLogos->isNotEmpty())
             <div class="financial-partners-grid">
                 @foreach($financialLogos as $logo)
-                <div class="partner-logo-box"><img src="{{ $partnerImageUrl($logo) }}" alt="{{ e($logo->alt) }}"></div>
+                <div class="partner-logo-box"><img src="{{ $partnerImageUrl($logo) }}" alt="{{ e($logo->alt) }}" onerror="this.onerror=null;this.src='{{ asset('placeholder-partner.svg') }}';"></div>
                 @endforeach
             </div>
             @endif

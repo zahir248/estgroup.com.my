@@ -78,7 +78,7 @@
                     @foreach($partners[$sectionKey] ?? [] as $partner)
                         <div class="col-6 col-md-4 col-lg-3">
                             <div class="partner-logo-card border rounded p-2 d-flex align-items-center justify-content-center" style="min-height: 80px;">
-                                <img src="{{ str_starts_with($partner->image, 'http') ? $partner->image : asset($partner->image) }}" alt="{{ $partner->alt ?? '' }}" class="img-fluid" style="max-height: 60px; object-fit: contain;">
+                                <img src="{{ str_starts_with($partner->image, 'http') ? $partner->image : (str_starts_with($partner->image, 'storage/') ? route('partner.image', ['path' => \Illuminate\Support\Str::after($partner->image, 'storage/')]) : asset($partner->image)) }}" alt="{{ $partner->alt ?? '' }}" class="img-fluid" style="max-height: 60px; object-fit: contain;" onerror="this.onerror=null;this.src='{{ asset('placeholder-partner.svg') }}';">
                                 <form action="{{ route('admin.partners.destroy', $partner) }}" method="POST" class="position-absolute top-0 end-0 m-1" onsubmit="return confirm('Remove this logo?');">
                                     @csrf
                                     @method('DELETE')

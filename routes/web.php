@@ -8,7 +8,13 @@ use App\Http\Controllers\Admin\HomePageController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PartnerImageController;
 use Illuminate\Support\Facades\Route;
+
+// Serve partner logos from storage (works on cPanel where symlink may not)
+Route::get('/partner-image/{path}', [PartnerImageController::class, 'show'])
+    ->where('path', 'partners/.+')
+    ->name('partner.image');
 
 // Admin (auth required for dashboard)
 Route::prefix('admin')->name('admin.')->group(function () {
