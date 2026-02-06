@@ -53,9 +53,8 @@
 
     .services-panel { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(13, 33, 55, 0.08); }
     .services-tabs { background: #0b4aa2; padding: 20px 18px; }
-    .services-tabs .tab-btn { width: 100%; border: 0; background: rgba(255, 255, 255, 0.18); color: #fff; font-weight: 700; border-radius: 8px; padding: 18px 16px; text-align: center; line-height: 1.3; transition: background 0.2s ease, transform 0.2s ease; }
+    .services-tabs .tab-btn { width: 100%; border: 0; background: rgba(255, 255, 255, 0.18); color: #fff; font-weight: 700; border-radius: 8px; padding: 18px 16px; text-align: center; line-height: 1.3; cursor: default; }
     .services-tabs .tab-btn + .tab-btn { margin-top: 14px; }
-    .services-tabs .tab-btn:hover { background: rgba(255, 255, 255, 0.28); transform: translateY(-1px); }
     .services-tabs .tab-btn.is-active { background: #ffffff; color: #0d2137; }
 
     .services-content { padding: 28px 30px; }
@@ -197,15 +196,15 @@
                 <div class="row g-0">
                     <div class="col-lg-4">
                         <div class="services-tabs h-100 d-flex flex-column justify-content-center">
-                            <button type="button" class="tab-btn is-active" data-service-tab="solar-dev">
+                            <div class="tab-btn">
                                 Solar Energy<br>Installation &amp;<br>Development
-                            </button>
-                            <button type="button" class="tab-btn" data-service-tab="epc">
+                            </div>
+                            <div class="tab-btn">
                                 Engineering,<br>Procurement &amp;<br>Construction
-                            </button>
-                            <button type="button" class="tab-btn" data-service-tab="om">
+                            </div>
+                            <div class="tab-btn">
                                 Operation &amp;<br>Maintenance
-                            </button>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-8">
@@ -335,18 +334,6 @@
         });
     }
 
-    // Service tabs (What We Do section)
-    var tabBtns = document.querySelectorAll('[data-service-tab]');
-    var panes = document.querySelectorAll('[data-service-pane]');
-    if (tabBtns.length && panes.length) {
-        tabBtns.forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                var target = btn.getAttribute('data-service-tab');
-                tabBtns.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
-                panes.forEach(function (p) { p.classList.toggle('d-none', p.getAttribute('data-service-pane') !== target); });
-            });
-        });
-    }
 })();
 </script>
 @endpush
