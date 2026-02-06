@@ -17,7 +17,7 @@
                     <div class="col-md-4">
                         <label class="form-label">Photo</label>
                         <div class="mb-2">
-                            <img src="{{ str_starts_with($member->image, 'http') ? $member->image : asset($member->image) }}" alt="{{ $member->name }}" class="rounded" style="width: 100px; height: 100px; object-fit: cover;">
+                            <img src="{{ str_starts_with($member->image, 'http') ? $member->image : (str_starts_with($member->image, 'storage/') ? route('team.image', ['path' => \Illuminate\Support\Str::after($member->image, 'storage/')]) : asset($member->image)) }}" alt="{{ $member->name }}" class="rounded" style="width: 100px; height: 100px; object-fit: cover;" onerror="this.onerror=null;this.src='{{ asset('placeholder-partner.svg') }}';">
                         </div>
                         <input type="file" name="image" class="form-control form-control-sm" accept="image/*">
                         <small class="text-muted">Leave empty to keep current photo.</small>

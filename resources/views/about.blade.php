@@ -490,7 +490,7 @@
                 <div class="row g-0">
                     <div class="col-md-4">
                         <div class="team-profile-img-wrap">
-                            <img src="{{ str_starts_with($member->image, 'http') ? $member->image : asset($member->image) }}" alt="{{ e($member->name) }}">
+                            <img src="{{ str_starts_with($member->image, 'http') ? $member->image : (str_starts_with($member->image, 'storage/') ? route('team.image', ['path' => \Illuminate\Support\Str::after($member->image, 'storage/')]) : asset($member->image)) }}" alt="{{ e($member->name) }}" onerror="this.onerror=null;this.src='{{ asset('placeholder-partner.svg') }}';">
                         </div>
                     </div>
                     <div class="col-md-8">

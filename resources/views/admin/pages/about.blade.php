@@ -64,7 +64,7 @@
                     <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
                         <div class="team-member-card border rounded p-3 position-relative">
                             <div class="d-flex gap-3 align-items-start">
-                                <img src="{{ str_starts_with($member->image, 'http') ? $member->image : asset($member->image) }}" alt="{{ $member->name }}" class="rounded flex-shrink-0" style="width: 80px; height: 80px; object-fit: cover;">
+                                <img src="{{ str_starts_with($member->image, 'http') ? $member->image : (str_starts_with($member->image, 'storage/') ? route('team.image', ['path' => \Illuminate\Support\Str::after($member->image, 'storage/')]) : asset($member->image)) }}" alt="{{ $member->name }}" class="rounded flex-shrink-0" style="width: 80px; height: 80px; object-fit: cover;" onerror="this.onerror=null;this.src='{{ asset('placeholder-partner.svg') }}';">
                                 <div class="min-w-0 flex-grow-1">
                                     <strong class="d-block text-dark">{{ $member->name }}</strong>
                                     @if($member->title)

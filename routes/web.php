@@ -9,12 +9,18 @@ use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PartnerImageController;
+use App\Http\Controllers\TeamImageController;
 use Illuminate\Support\Facades\Route;
 
 // Serve partner logos from storage (works on cPanel where symlink may not)
 Route::get('/partner-image/{path}', [PartnerImageController::class, 'show'])
     ->where('path', 'partners/.+')
     ->name('partner.image');
+
+// Serve team member images from storage (works on cPanel where symlink may not)
+Route::get('/team-image/{path}', [TeamImageController::class, 'show'])
+    ->where('path', 'team/.+')
+    ->name('team.image');
 
 // Admin (auth required for dashboard)
 Route::prefix('admin')->name('admin.')->group(function () {
