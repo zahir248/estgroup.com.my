@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNav" style="background-color: transparent;">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-            <img src="{{ asset('estgroup logo.png') }}" alt="{{ config('app.name', 'EST Group') }}">
+            <img src="{{ asset('estgroup-logo.png') }}" alt="{{ config('app.name', 'EST Group') }}">
         </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

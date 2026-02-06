@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Dashboard') – Admin</title>
-    <link rel="icon" href="{{ asset('estgroup logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('estgroup-logo.png') }}" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -48,7 +48,7 @@
     <div class="admin-wrapper">
         <aside class="admin-sidebar">
             <div class="brand">
-                <img src="{{ asset('estgroup logo.png') }}" alt="EST Group">
+                <img src="{{ asset('estgroup-logo.png') }}" alt="EST Group">
                 <span>EST Admin</span>
             </div>
             <nav class="nav flex-column">

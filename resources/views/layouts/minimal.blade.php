@@ -7,7 +7,7 @@
     <title>@yield('title', config('app.name', 'EST Group'))</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('estgroup logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('estgroup-logo.png') }}" type="image/png">
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
