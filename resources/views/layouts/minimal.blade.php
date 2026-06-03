@@ -28,6 +28,71 @@
             --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
         body { font-family: var(--bs-body-font-family); overflow-x: hidden; margin: 0; padding: 0; }
+
+        /* Shared hero image background */
+        .hero {
+            min-height: 65vh;
+            position: relative;
+            overflow: hidden;
+            background-color: #0a1628;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        @media (min-width: 768px) {
+            .hero .hero-background {
+                background-attachment: fixed;
+            }
+        }
+        .hero .hero-background::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.88) 0%, rgba(13, 33, 55, 0.78) 45%, rgba(26, 95, 122, 0.65) 100%);
+        }
+        .hero .content-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 100%;
+            padding: 2rem 1.5rem;
+            width: 100%;
+        }
+        .hero .content-container > * {
+            opacity: 0;
+            transform: translateY(28px);
+            animation: hero-text-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .hero .content-container > *:nth-child(1) { animation-delay: 0.2s; }
+        .hero .content-container > *:nth-child(2) { animation-delay: 0.45s; }
+        .hero .content-container > *:nth-child(3) { animation-delay: 0.65s; }
+        .hero .content-container > *:nth-child(4) { animation-delay: 0.85s; }
+        .hero .content-container > *:nth-child(5) { animation-delay: 1.05s; }
+        @keyframes hero-text-in {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero .content-container > * {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+            .hero .hero-background {
+                background-attachment: scroll;
+            }
+        }
     </style>
     @stack('styles')
 </head>

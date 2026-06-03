@@ -33,7 +33,7 @@
     <div class="admin-toast-container" id="adminToastContainer" aria-live="polite"></div>
     <div class="admin-login-card">
         <div class="admin-login-header">
-            <img src="{{ asset('estgroup logo.png') }}" alt="{{ config('app.name') }}">
+            <img src="{{ asset('estgroup-logo.png') }}" alt="{{ config('app.name') }}">
             <h1>Admin Site</h1>
             <p>EST Group</p>
         </div>
